@@ -1,11 +1,19 @@
+/*
 .main {
-  display: flex;
+  flex-grow: 1;
+  padding: 3;
+  margin-top: 60px;
+  width: calc(100% - 240px);
+  /*display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
 }
+
+
+
 
 .description {
   display: inherit;
@@ -25,6 +33,7 @@
   gap: 0.5rem;
 }
 
+
 .description p {
   position: relative;
   margin: 0;
@@ -33,6 +42,7 @@
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
 }
+
 
 .code {
   font-weight: 700;
@@ -107,7 +117,10 @@
 .logo {
   position: relative;
 }
+*/
+
 /* Enable hover only on non-touch devices */
+/*
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
@@ -124,9 +137,15 @@
     transform: none;
   }
 }
+*/
 
 /* Mobile */
+/*
 @media (max-width: 700px) {
+  .main {
+    width: 100%
+  }
+
   .content {
     padding: 4rem;
   }
@@ -201,8 +220,10 @@
     z-index: 1;
   }
 }
+*/
 
 /* Tablet and Smaller Desktop */
+/*
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -227,3 +248,4 @@
     transform: rotate(0deg);
   }
 }
+*/

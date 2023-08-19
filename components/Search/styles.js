@@ -1,4 +1,4 @@
-import { InputBase, styled } from '@mui/material'
+import { OutlinedInput, styled } from '@mui/material'
 
 export const StyledForm = styled('form')(() => ({
   display: 'flex',
@@ -7,15 +7,6 @@ export const StyledForm = styled('form')(() => ({
 
 export const StyledSearchContainer = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: '30px',
-  backgroundColor: theme.palette.common.purple.dark[1],
-  border: `1px solid ${theme.palette.common.purple.light[2]}`,
-  opacity: 0.5,
-  '&:hover': {
-    backgroundColor: theme.palette.common.purple.dark[1],
-    border: `1px solid ${theme.palette.common.purple.light[2]}`,
-    opacity: 1
-  },
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: '100%',
@@ -35,12 +26,13 @@ export const StyledSearchIconContainer = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }))
 
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+export const StyledInputBase = styled(OutlinedInput)(({ theme }) => ({
+  borderRadius: '30px',
   '& .MuiInputBase-input': {
-    padding: '6px 6px 6px 0',
+    padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(3)})`,
     transition: theme.transitions.create('width'),
     width: '100%'
-  },
+  }
 }))

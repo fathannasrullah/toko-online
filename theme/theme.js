@@ -77,13 +77,18 @@ export const theme = createTheme({
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: {
-          border: `1px solid ${purple.light[2]}`,
-          opacity: 0.5,
-          ':hover': {
-            opacity: 1
-          },
-        },
+        root: ({ ownerState }) => ({
+          border: `1px solid${purple.light[2]}`,
+          ...(ownerState.value.length > 0
+              ? { opacity: 1 }
+              : {
+                  opacity: 0.5,
+                  ':hover': {
+                    opacity: 1
+                  },
+                }
+            )
+        }),
         notchedOutline: {
           border: 'none'
         }
@@ -91,13 +96,11 @@ export const theme = createTheme({
     },
     MuiSelect: {
       styleOverrides: {
-        select: {
-          '&.MuiMenuItem': {
-            '&.Mui-selected': {
-              color: 'red'
-            }
-          }
-        }
+        select: ({ ownerState }) => ({
+          ...(ownerState.value.length > 0 && {
+            color: purple.light[2]
+          })
+        })
       }
     },
     MuiCheckbox: {

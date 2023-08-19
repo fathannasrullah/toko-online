@@ -3,7 +3,6 @@ import { usePathname, useRouter } from 'next/navigation'
 import {
   List,
   ListItem,
-  ListItemButton,
   ListItemIcon,
   ListItemText
 } from '@mui/material'
@@ -13,7 +12,9 @@ import { navigation } from '@/utils/navigation'
 import { StyledDrawerPermanent, StyledDrawerTemporary, StyledListItemButton, StyledNavigation } from './styles'
 
 const Navigation = ({ handleDrawerToggle, mobileOpen }) => {
-  const selectedPath = usePathname()
+  let selectedPath = usePathname()
+  if (selectedPath.split('/').length > 2) selectedPath = selectedPath.split('/').slice(0, 2).join('/')
+
   const router = useRouter()
 
   const drawer = (

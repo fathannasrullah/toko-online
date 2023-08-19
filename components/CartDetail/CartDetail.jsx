@@ -175,7 +175,7 @@ const CartDetail = () => {
       </StyledSummariesContainer>
       
       <StyledContinuePayContainer>
-        <Grid xs={12} container justifyContent='space-between' alignItems='center'>
+        <Grid item xs={12} container justifyContent='space-between' alignItems='center'>
           <Typography>Total : ${currencyFormat(discountedTotal, 0)}</Typography>
           <Button size='large' variant='contained'>Continue and Pay</Button>
         </Grid>

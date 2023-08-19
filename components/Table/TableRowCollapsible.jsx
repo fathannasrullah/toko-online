@@ -33,7 +33,6 @@ const TableRowCollapsible = ({
 
   const toggleCollapsible = (event) => {
     setExpandRow(!expandRow)
-    console.log('test  ', event.target)
   }
 
   const handleRowClick = (path) => {

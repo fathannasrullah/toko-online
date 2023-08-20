@@ -20,10 +20,8 @@ const PrimaryAppBar = () => {
 
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const handleDrawerToggle = (linkTo) => {
+  const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
-    
-    if (linkTo && typeof linkTo === 'function') linkTo()
   }
 
   return (

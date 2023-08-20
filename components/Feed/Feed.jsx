@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { Box, Button, ImageList, ImageListItem, Typography } from '@mui/material'
+import { Button, Grid, ImageList, ImageListItem } from '@mui/material'
 
 import { StyledFeedContainer } from './styles'
 
@@ -60,7 +60,7 @@ const itemData = [
 const Feed = () => {
   return (
     <StyledFeedContainer container>
-      <Box sx={{ overflowY: 'scroll' }}>
+      <Grid item sx={{ overflowY: 'scroll' }}>
         <ImageList variant="masonry" cols={3} gap={8}>
           {itemData.map((item) => (
             <ImageListItem key={item.img}>
@@ -74,14 +74,14 @@ const Feed = () => {
             </ImageListItem>
           ))}
         </ImageList>
-      </Box>
-      <Box mt={10}>
+      </Grid>
+      <Grid item mt={10}>
         <Link href='/products' passHref>
           <Button variant='contained' size='large'>
             see all products
           </Button>
         </Link>
-      </Box>
+      </Grid>
     </StyledFeedContainer>
   )
 }

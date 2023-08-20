@@ -1,16 +1,15 @@
 import { Drawer, ListItemButton, SwipeableDrawer, styled } from '@mui/material'
 
-
 export const StyledNavigation = styled('nav')(({ theme }) => ({
-  [theme.breakpoints.up('sm')]: {
-    width: '240px',
-    flexShrink: 0
+  flexShrink: 0,
+  [theme.breakpoints.up(1023)]: {
+    width: '240px'
   }
 }))
 
 export const StyledDrawerTemporary = styled(SwipeableDrawer)(({ theme }) => ({
   display: 'none',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down(1023)]: {
     display: 'block'
   },
   '& .MuiDrawer-paper': {
@@ -22,7 +21,7 @@ export const StyledDrawerTemporary = styled(SwipeableDrawer)(({ theme }) => ({
 
 export const StyledDrawerPermanent = styled(Drawer)(({ theme }) => ({
   display: 'block',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down(1023)]: {
     display: 'none'
   },
   '& .MuiDrawer-paper': {

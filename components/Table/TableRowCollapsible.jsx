@@ -31,7 +31,7 @@ const TableRowCollapsible = ({
 
   const [expandRow, setExpandRow] = useState(false)
 
-  const toggleCollapsible = (event) => {
+  const toggleCollapsible = () => {
     setExpandRow(!expandRow)
   }
 

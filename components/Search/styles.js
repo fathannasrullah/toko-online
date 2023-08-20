@@ -5,15 +5,9 @@ export const StyledForm = styled('form')(() => ({
   justifyContent: 'flex-end'
 }))
 
-export const StyledSearchContainer = styled('div')(({ theme }) => ({
+export const StyledSearchContainer = styled('div')(() => ({
   position: 'relative',
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: '40%',
-  },
+  maxWidth: '265px'
 }))
 
 export const StyledSearchIconContainer = styled('div')(({ theme }) => ({
@@ -31,8 +25,11 @@ export const StyledInputBase = styled(OutlinedInput)(({ theme }) => ({
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+    paddingLeft: `calc(1em + ${theme.spacing(2.5)})`,
     transition: theme.transitions.create('width'),
-    width: '100%'
+    width: '100%',
+  },
+  '& .MuiInputAdornment-positionEnd': {
+    margin: '0 -10px'
   }
 }))

@@ -1,11 +1,10 @@
-import { 
-  Card, 
-  Paper, 
-  TableContainer, 
-  Table, 
-  TableHead, 
+import {
+  Card,
+  Paper,
+  Table,
+  TableHead,
   TableCell,
-  TableBody, 
+  TableBody,
   TablePagination,
   TableRow,
   Grid,
@@ -15,6 +14,8 @@ import {
 import { isEmpty } from 'lodash'
 
 import TableRowPrimary from './TableRowPrimary'
+
+import { StyledTableContainer } from './styles'
 
 const TablePrimary = ({
   TableRowCustom = TableRowPrimary,
@@ -30,7 +31,7 @@ const TablePrimary = ({
   return (
     <Card>
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer sx={{ height: 640, width: '100%' }}>
+        <StyledTableContainer>
           <Table stickyHeader>
             <TableHead>
               <TableRow>
@@ -65,7 +66,7 @@ const TablePrimary = ({
               <Typography>Data not found!</Typography>
             </Grid>
           }
-        </TableContainer>
+        </StyledTableContainer>
         <TablePagination 
           rowsPerPageOptions={[10]}
           component='div'
@@ -73,7 +74,6 @@ const TablePrimary = ({
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={onPageChange}
-          //onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
     </Card>

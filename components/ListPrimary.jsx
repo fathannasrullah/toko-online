@@ -279,18 +279,18 @@ const ListPrimary= ({
 
   return (
     <Grid container spacing={1}>
-        <TopBar
-          selects={selects}
-          priceRangeValue={priceRangeValue}
-          price={price}
-          filterSelected={filterSelected}
-          showSearchFilter={showSearchFilter}
-          searchValue={searchValue}
-          onSearchChange={handleSearchChange}
-          onPriceRangeChange={handlePriceRangeChange}
-          onClearFilter={handleClearFilter}
-          onApplyFilter={handleApplyFilter}
-        />
+      <TopBar
+        selects={selects}
+        priceRangeValue={priceRangeValue}
+        price={price}
+        filterSelected={filterSelected}
+        showSearchFilter={showSearchFilter}
+        searchValue={searchValue}
+        onSearchChange={handleSearchChange}
+        onPriceRangeChange={handlePriceRangeChange}
+        onClearFilter={handleClearFilter}
+        onApplyFilter={handleApplyFilter}
+      />
       <Grid item xs={12}>
         <TablePrimary
           TableRowCustom={TableRowCustom}

@@ -1,7 +1,7 @@
 import { Grid, styled } from '@mui/material'
 
 export const StyledFeedContainer = styled (Grid)(() => ({
-  //height: '80vh',
+  flexDirection: 'column',
   justifyContent: 'center',
-  //alignItems: 'center'
+  alignItems: 'center'
 }))

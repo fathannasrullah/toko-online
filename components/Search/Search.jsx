@@ -12,6 +12,10 @@ import {
 } from './styles'
 
 const Search = ({ searchValue, onSearchChange }) => {
+  const handleKeyDown = (event) => {
+    event.key === 'Enter' && event.preventDefault()
+  }
+
   return (
     <StyledForm>
       <StyledSearchContainer>
@@ -21,7 +25,10 @@ const Search = ({ searchValue, onSearchChange }) => {
         <StyledInputBase
           value={searchValue}
           placeholder='Search..'
-          inputProps={{ 'aria-label': 'search' }}
+          inputProps={{
+            'aria-label': 'search',
+            maxLength: 50
+          }}
           endAdornment={!isEmpty(searchValue) &&
             <InputAdornment position='end'>
               <IconButton
@@ -33,6 +40,7 @@ const Search = ({ searchValue, onSearchChange }) => {
             </InputAdornment>
           }
           onChange={onSearchChange}
+          onKeyDown={handleKeyDown}
         />
       </StyledSearchContainer>
     </StyledForm>

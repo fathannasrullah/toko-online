@@ -13,9 +13,14 @@ import { StyledDrawerPermanent, StyledDrawerTemporary, StyledListItemButton, Sty
 
 const Navigation = ({ handleDrawerToggle, mobileOpen }) => {
   let selectedPath = usePathname()
-  if (selectedPath.split('/').length > 2) selectedPath = selectedPath.split('/').slice(0, 2).join('/')
-
   const router = useRouter()
+
+  if (selectedPath.split('/').length > 2) selectedPath = selectedPath.split('/').slice(0, 2).join('/')
+  
+  const handleNavigateTo = async (path) => {
+    router.push(path)
+    mobileOpen == true && handleDrawerToggle()
+  }
 
   const drawer = (
     <List>
@@ -23,7 +28,7 @@ const Navigation = ({ handleDrawerToggle, mobileOpen }) => {
         <>
           <ListItem key={index} disablePadding>
             <StyledListItemButton
-              onClick={() => handleDrawerToggle(router.push(path))}
+              onClick={() => handleNavigateTo(path)}
               selected={path === selectedPath}
             >
               <ListItemIcon>

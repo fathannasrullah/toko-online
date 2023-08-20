@@ -15,7 +15,6 @@ import {
   Divider,
   Grid,
   IconButton,
-  List,
   ListItem,
   ListItemAvatar,
   ListItemText,
@@ -35,8 +34,10 @@ import TopBar from '../AppBar/TopBar'
 import { currencyFormat } from '@/utils/helpers/format-helper'
 
 import {
+  StyledContinuePay,
   StyledContinuePayContainer,
   StyledImage,
+  StyledList,
   StyledProductListContainer,
   StyledSkeleton,
   StyledSummariesContainer
@@ -81,6 +82,7 @@ const CartDetail = () => {
     },
     {
       label: 'Total',
+      color: 'primary',
       value: discountedTotal,
       fontWeight: 600,
       format: (value) => currencyFormat(value, 0)
@@ -91,76 +93,80 @@ const CartDetail = () => {
     <>
       <TopBar />
       <StyledProductListContainer>
-        <List disablePadding>
-          {products.map(({ title, price, discountPercentage, quantity, id }) => {
-            const discountedPrice = Math.round(price - (discountPercentage/100 * price))
+        <Grid container justifyContent='center'>
+          <StyledList disablePadding>
+            {products.map(({ title, price, discountPercentage, quantity, id }) => {
+              const discountedPrice = Math.round(price - (discountPercentage/100 * price))
           
-            return (
-            <Fragment key={id}>
-              <ListItem alignItems='flex-start'>
-                <ListItemText
-                  primary={
-                    detailIsLoading ? (
-                      <StyledSkeleton variant='rectangular' width='200px' />
-                    ) : (
-                      title
-                    )
-                  }
-                  secondary={
-                    detailIsLoading ? (
-                      <StyledSkeleton variant='rectangular' width='150px' />
-                    ) : (
-                      <Typography>
-                        {currencyFormat(discountedPrice, 0)} <del>{price}</del>
-                      </Typography>
-                    )
-                  }
-                />
-                <ListItemAvatar>
-                  <Grid container flexDirection='column' alignItems='center'>
-                    <StyledImage alt={`product ${id}`} src='' variant='square'>Product {id}</StyledImage>
-                    <Grid container flexDirection='row' justifyContent='flex-end' alignItems='center'>
-                      {detailIsLoading ? (
-                        <StyledSkeleton variant='rectangular' width='100%' />
-                      ) : (
-                        <>
-                          <IconButton>
-                            <RemoveCircleOutlineOutlinedIcon />
-                          </IconButton>
-                          <Typography>{currencyFormat(quantity, 0)}</Typography>
-                          <IconButton>
-                            <AddCircleOutlineRoundedIcon />
-                          </IconButton>
-                        </>
-                      )}
-                    </Grid>
-                  </Grid>
-                </ListItemAvatar>
-              </ListItem>
-              <Divider />
-            </Fragment>
-          )})}
-        </List>
+              return (
+                <Fragment key={id}>
+                  <ListItem alignItems='flex-start'>
+                    <ListItemText
+                      primary={
+                        detailIsLoading ? (
+                          <StyledSkeleton variant='rectangular' width='200px' />
+                        ) : (
+                          title
+                        )
+                      }
+                      secondary={
+                        detailIsLoading ? (
+                          <StyledSkeleton variant='rectangular' width='150px' />
+                        ) : (
+                          <Typography>
+                            {currencyFormat(discountedPrice, 0)} <del>{price}</del>
+                          </Typography>
+                        )
+                      }
+                    />
+                    <ListItemAvatar>
+                      <Grid container flexDirection='column' alignItems='center'>
+                        <StyledImage alt={`product ${id}`} src='' variant='square'>Product {id}</StyledImage>
+                        <Grid container flexDirection='row' justifyContent='flex-end' alignItems='center'>
+                          {detailIsLoading ? (
+                            <StyledSkeleton variant='rectangular' width='100%' />
+                          ) : (
+                            <>
+                              <IconButton>
+                                <RemoveCircleOutlineOutlinedIcon />
+                              </IconButton>
+                              <Typography>{currencyFormat(quantity, 0)}</Typography>
+                              <IconButton>
+                                <AddCircleOutlineRoundedIcon />
+                              </IconButton>
+                            </>
+                          )}
+                        </Grid>
+                      </Grid>
+                    </ListItemAvatar>
+                  </ListItem>
+                  <Divider />
+                </Fragment>
+              )
+            })}
+          </StyledList>
+        </Grid>
       </StyledProductListContainer>
-      <StyledSummariesContainer variant='outlined'>
+      <Grid container justifyContent='center'>
+        <StyledSummariesContainer variant='outlined'>
         <CardContent>
-          <Typography variant="h5">
+          <Typography variant='h5' color='primary'>
             Summary
           </Typography>
-          {summaries.map(({ label, value, fontWeight, divider, format }, index) => (
+          {summaries.map(({ label, value, fontWeight, color, divider, format }, index) => (
             <Fragment key={index}>
               <Grid container justifyContent='space-between' sx={{ margin: '3px 0' }}>
                 {detailIsLoading ? (
                   <StyledSkeleton variant='rectangular' width='150px' />
                 ) : (
-                  <Typography sx={{ fontWeight: fontWeight }}>
+                  <Typography color={color} fontWeight={fontWeight}>
                     {label}
                   </Typography>
                 )}
                 {detailIsLoading ? (
                   <StyledSkeleton variant='rectangular' width='100px' />
                 ) : (
-                  <Typography>
+                  <Typography color={color}>
                     {format && typeof value === 'number'
                       ? format(value)
                       : value
@@ -172,12 +178,14 @@ const CartDetail = () => {
             </Fragment>
           ))}
         </CardContent>
-      </StyledSummariesContainer>
-      
+        </StyledSummariesContainer>
+      </Grid>
       <StyledContinuePayContainer>
-        <Grid item xs={12} container justifyContent='space-between' alignItems='center'>
-          <Typography>Total : ${currencyFormat(discountedTotal, 0)}</Typography>
-          <Button size='large' variant='contained'>Continue and Pay</Button>
+        <Grid container justifyContent='center'>
+          <StyledContinuePay item container spacing={2}>
+            <Grid item><Typography color='primary' fontWeight={600}>Total : ${currencyFormat(discountedTotal, 0)}</Typography></Grid>
+            <Grid item><Button size='large' variant='contained'>Continue and Pay</Button></Grid>
+          </StyledContinuePay>
         </Grid>
       </StyledContinuePayContainer>
     </>

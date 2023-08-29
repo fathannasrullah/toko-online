@@ -16,12 +16,7 @@ const TopBar = ({
   onApplyFilter
 }) => {
   return (
-    <Grid item xs={12} container 
-      columnSpacing={1.5}
-      direction='row'
-      justifyContent='flex-end'
-      alignItems='center'
-    >
+    <>
       {showSearchFilter &&
         <>
           <Grid item xs={7}>
@@ -43,7 +38,7 @@ const TopBar = ({
           </Grid>
         </>
       }
-    </Grid>
+    </>
   )
 }
 

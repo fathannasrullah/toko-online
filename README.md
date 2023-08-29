@@ -39,4 +39,4 @@ npm run dev
 * [Next.js](https://nextjs.org/)
 * [React.js](https://react.dev/)
 * [MaterialUI](https://mui.com/)
-* [Redux Toolkit](https://red
+* [Redux Toolkit](https://redux-toolkit.js.org/)

@@ -34,3 +34,9 @@ npm install
 # For npm
 npm run dev
 ```
+
+# Technologi Used 
+* [Next.js](https://nextjs.org/)
+* [React.js](https://react.dev/)
+* [MaterialUI](https://mui.com/)
+* [Redux Toolkit](https://red

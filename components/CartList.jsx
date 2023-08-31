@@ -9,9 +9,6 @@ import { cartTableColumns } from '@/utils/table-columns/cart-table-column'
 
 const ListPrimary = dynamic(() => import('./ListPrimary'))
 const TableRowCollapsible = dynamic(() => import('./Table/TableRowCollapsible'))
-/*import ListPrimary from './ListPrimary'
-import TableRowCollapsible from './Table/TableRowCollapsible'
-*/
 
 const CartList = () => {
   return (

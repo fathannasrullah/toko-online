@@ -2,7 +2,6 @@
 
 import {
   Fragment,
-  useCallback,
   useEffect
 } from 'react'
 
@@ -44,8 +43,6 @@ const CartDetail = () => {
   const params = useParams()
   const { id: cartID } = params
 
-  //const [fetchType, setFetchType] = useState({ name: 'initial' })
-
   const dispatch = useDispatch()
   const { statusRequest, cartDetailData } = useSelector((state) => state.carts)
 
@@ -56,14 +53,10 @@ const CartDetail = () => {
   } = cartDetailData
 
   const detailIsLoading = statusRequest === STATUS_REQUEST_CART_DETAIL_PENDING
-
-  const handleFetchDetail = useCallback(async () => {
-    dispatch(getCartDetail(cartID))
-  }, [])
-
+  
   useEffect(() => {
-    handleFetchDetail()
-  }, [handleFetchDetail])
+    dispatch(getCartDetail(cartID))
+  }, [dispatch])
 
   const summaries = [
     {

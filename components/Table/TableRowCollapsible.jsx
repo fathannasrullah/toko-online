@@ -7,7 +7,6 @@ import {
   TableCell,
   TableBody,
   IconButton,
-  Collapse,
   Box,
   Typography,
   Grid,
@@ -45,6 +44,7 @@ const TableRowCollapsible = ({
         hover
         role='checkbox'
         tabIndex={-1}
+        onClick={(event) => toggleCollapsible(event)}
       >
         {columns.map(({ name, align, format, collapsibleIcon = false }, index) => {
           let value = row[name]
@@ -67,7 +67,6 @@ const TableRowCollapsible = ({
                         aria-label='expand row'
                         size='small'
                         sx={{ pt: 0, pb:0 }}
-                        onClick={(event) => toggleCollapsible(event)}
                       >
                         {expandRow ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                       </IconButton>

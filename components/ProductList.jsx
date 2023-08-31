@@ -1,5 +1,7 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import {
   getProductBrands,
   getProductCategories,
@@ -18,11 +20,11 @@ import {
   STATUS_REQUEST_PRODUCT_LIST_PENDING,
 } from '@/utils/constant'
 
-import ListContainer from './ListPrimary'
+const ListPrimary = dynamic(() => import('./ListPrimary'))
 
 const ProductList = () => {
   return (
-    <ListContainer
+    <ListPrimary
       showSearchFilter
       tableColumns={productTableColumns}
       responseKeyName={STORE_NAME.PRODUCTS}

@@ -1,3 +1,5 @@
+import dynamic from 'next/dynamic'
+
 import {
   Card,
   Paper,
@@ -13,7 +15,7 @@ import {
 
 import { isEmpty } from 'lodash'
 
-import TableRowPrimary from './TableRowPrimary'
+const TableRowPrimary = dynamic(() => import('./TableRowPrimary'))
 
 import { StyledTableContainer } from './styles'
 

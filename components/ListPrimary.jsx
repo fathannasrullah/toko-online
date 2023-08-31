@@ -1,3 +1,5 @@
+import dynamic from 'next/dynamic'
+
 import { useCallback, useEffect, useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,9 +8,8 @@ import { Grid } from '@mui/material'
 
 import { isEmpty } from 'lodash'
 
-import TablePrimary from './Table/TablePrimary'
-
-import TopBar from './AppBar/TopBar'
+const TopBar = dynamic(() => import('./AppBar/TopBar'))
+const TablePrimary = dynamic(() => import('./Table/TablePrimary'))
 
 const ListPrimary= ({
   TableRowCustom,

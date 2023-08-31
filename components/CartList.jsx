@@ -1,12 +1,17 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import { getCartList } from '@/store/carts/action'
 
 import { STATE_NAME_CART_LIST, STATUS_REQUEST_CART_LIST_PENDING, STORE_NAME } from '@/utils/constant'
 import { cartTableColumns } from '@/utils/table-columns/cart-table-column'
 
-import ListPrimary from './ListPrimary'
+const ListPrimary = dynamic(() => import('./ListPrimary'))
+const TableRowCollapsible = dynamic(() => import('./Table/TableRowCollapsible'))
+/*import ListPrimary from './ListPrimary'
 import TableRowCollapsible from './Table/TableRowCollapsible'
+*/
 
 const CartList = () => {
   return (

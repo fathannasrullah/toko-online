@@ -3,8 +3,7 @@
 import {
   Fragment,
   useCallback,
-  useEffect,
-  useState
+  useEffect
 } from 'react'
 
 import { useParams } from 'next/navigation'
@@ -29,8 +28,6 @@ import { getCartDetail } from '@/store/carts/action'
 
 import { STATUS_REQUEST_CART_DETAIL_PENDING } from '@/utils/constant'
 
-import TopBar from '../AppBar/TopBar'
-
 import { currencyFormat } from '@/utils/helpers/format-helper'
 
 import {
@@ -47,7 +44,7 @@ const CartDetail = () => {
   const params = useParams()
   const { id: cartID } = params
 
-  const [fetchType, setFetchType] = useState({ name: 'initial' })
+  //const [fetchType, setFetchType] = useState({ name: 'initial' })
 
   const dispatch = useDispatch()
   const { statusRequest, cartDetailData } = useSelector((state) => state.carts)
@@ -62,7 +59,7 @@ const CartDetail = () => {
 
   const handleFetchDetail = useCallback(async () => {
     dispatch(getCartDetail(cartID))
-  }, [fetchType])
+  }, [])
 
   useEffect(() => {
     handleFetchDetail()
@@ -91,7 +88,6 @@ const CartDetail = () => {
 
   return (
     <>
-      <TopBar />
       <StyledProductListContainer>
         <Grid container justifyContent='center'>
           <StyledList disablePadding>
